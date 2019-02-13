@@ -1,5 +1,5 @@
 import React from 'react'
-import './Credit-card.css'
+import './Card.css'
 import puce from './puce.png'
 import mastercard from './mastercard.png'
 
@@ -16,10 +16,10 @@ const Card =(props) =>{
                 </div>
                 <div className="info-container">
                     <div className="card-info">
-                        <p>{props.number}</p>
+                        <p>{String(props.number).padEnd(16, '*')}</p>
                         <div className="card-valid-container">
                             <div>5422</div>
-                            <div>{props.date}</div>
+                            <div>{String(props.date).padEnd(5,'*')}</div>
                         </div>
                         <div className="holder-container">{props.name}</div>
                     </div>
@@ -29,12 +29,6 @@ const Card =(props) =>{
                 </div>
             </div>
         )
-}
-
-Card.defaultProps ={
-    number : '0000 0000 0000 0000',
-    date : 'mm/YY',
-    name : 'FOULEN'
 }
 
 export default Card;
